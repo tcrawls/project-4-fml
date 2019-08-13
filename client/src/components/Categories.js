@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
+import { Link } from 'react-router-dom'
 
 
 export default class Categories extends Component {
@@ -19,7 +20,9 @@ export default class Categories extends Component {
     render() {
         let categoryList = this.state.categories.map((category) => {
             return (
-                <p>{category.name}</p>
+                <div>
+                    <Link key={category._id} to={`/category/${category._id}`}>{category.name}</Link>
+                </div>
             )
         })
 
