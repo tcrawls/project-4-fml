@@ -1,21 +1,25 @@
 const express = require('express')
 const categoryApi = require('../models/category.js')
+const postApi = require('../models/post.js')
 const categoryRouter = express.Router()
 
 
 // CATEGORY REQUEST HANDLERS:
 
 categoryRouter.get('/', (req, res) => {
-  categoryApi.getAllCategories()
-    .then((categories) => {
-      res.json(categories)
-    })
+    categoryApi.getAllCategories()
+        .then((categories) => {
+            res.json(categories)
+        })
 })
 
 categoryRouter.get('/:categoryId', (req, res) => {
     categoryApi.getCategory(req.params.categoryId)
         .then((category) => {
-            res.json(category)
+            postApi.getPostsByCategoryId(category._id)
+                .then((posts) => {
+                    res.json(category, posts)
+                })
         })
 })
 
@@ -36,4 +40,4 @@ categoryRouter.delete('/:categoryId', (req, res) => {
 
 module.exports = {
     categoryRouter
-  }
+}
