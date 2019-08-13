@@ -34,7 +34,6 @@ categoryRouter.delete('/:categoryId', (req, res) => {
 })
 
 
-
 module.exports = {
     categoryRouter
   }
