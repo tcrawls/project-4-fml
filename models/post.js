@@ -37,8 +37,10 @@ function deletePost(postId) {
 }
 
 module.exports = {
-    getAllCategories,
-    getCategory,
-    addNewCategory,
-    deleteCategory
+    getAllPosts,
+    getPostsByCategoryId,
+    getSinglePost,
+    addNewPost,
+    updatePost,
+    deletePost
 }
