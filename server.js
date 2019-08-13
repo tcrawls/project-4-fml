@@ -17,6 +17,7 @@ const app = express()
  *
  */
 const { categoryRouter } = require('./controllers/category.js')
+const { postRouter } = require('./controllers/post.js')
 
 
 /* Step 3
@@ -50,6 +51,7 @@ app.use(express.static(`${__dirname}/client/build`))
  * the paths defined in the router.
  */
 app.use('/api/category', categoryRouter)
+app.use('/api/post', postRouter)
 
 /* Step 5
  *

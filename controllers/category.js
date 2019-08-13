@@ -16,10 +16,11 @@ categoryRouter.get('/', (req, res) => {
 categoryRouter.get('/:categoryId', (req, res) => {
     categoryApi.getCategory(req.params.categoryId)
         .then((category) => {
-            postApi.getPostsByCategoryId(category._id)
-                .then((posts) => {
-                    res.json(category, posts)
-                })
+            // postApi.getPostsByCategoryId(category._id)
+            //     .then((posts) => {
+            //         res.json(category, posts)
+            //     })
+            res.json(category)
         })
 })
 

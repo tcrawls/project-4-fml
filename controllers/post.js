@@ -6,17 +6,31 @@ const postRouter = express.Router()
 // POST REQUEST HANDLERS:
 
 
-// postRouter.get('/:categoryId', (req, res) => {
-//   postApi.getPostsByCategoryId(req.params.categoryId)
-//     .then((posts) => {
-//       res.json(posts)
-//     })
-// })
+postRouter.get('/byCategoryId/:categoryId', (req, res) => {
+  postApi.getPostsByCategoryId(req.params.categoryId)
+    .then((posts) => {
+      res.json(posts)
+    })
+})
 
-postRouter.get('/post/:postId', (req, res) => {
+postRouter.get('/', (req, res) => {
+    postApi.getAllPosts()
+        .then((posts) => {
+            res.json(posts)
+        })
+})
+
+postRouter.get('/:postId', (req, res) => {
     postApi.getSinglePost(req.params.postId)
     .then((post) => {
       res.json(post)
+    })
+})
+
+postRouter.post('/', (req, res) => {
+    postApi.addNewPost(req.body)
+        .then((post) => {
+            res.json(post)
     })
 })
 
