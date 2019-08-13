@@ -24,7 +24,6 @@ function deleteCategory(categoryId) {
   return CategoryCollection.findByIdAndDelete(categoryId)
 }
 
-
 module.exports = {
   getAllCategories,
   getCategory,
