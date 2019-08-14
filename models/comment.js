@@ -19,9 +19,9 @@ function getCommentsByPostId(postId) {
     return CommentCollection.find({ postId: postId })
 }
 
-// function getSinglePost(postId) {
-//     return PostCollection.findById(postId)
-// }
+function getSingleComment(commentId) {
+    return CommentCollection.findById(commentId)
+}
 
 function addNewComment(commentObject) {
     return CommentCollection.create(commentObject)
@@ -38,6 +38,7 @@ function deleteComment(commentId) {
 module.exports = {
     getAllComments,
     getCommentsByPostId,
+    getSingleComment,
     addNewComment,
     updateComment,
     deleteComment

@@ -18,6 +18,7 @@ const app = express()
  */
 const { categoryRouter } = require('./controllers/category.js')
 const { postRouter } = require('./controllers/post.js')
+const { commentRouter } = require('./controllers/comment.js')
 
 
 /* Step 3
@@ -52,6 +53,7 @@ app.use(express.static(`${__dirname}/client/build`))
  */
 app.use('/api/category', categoryRouter)
 app.use('/api/post', postRouter)
+app.use('/api/comment', commentRouter)
 
 /* Step 5
  *
