@@ -3,7 +3,7 @@ import axios from 'axios'
 import { Link } from 'react-router-dom'
 
 
-export default class Categories extends Component {
+export default class Homepage extends Component {
 
     state = {
         categories: [],

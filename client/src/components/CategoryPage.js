@@ -3,7 +3,7 @@ import axios from 'axios'
 import { Link } from 'react-router-dom'
 
 
-export default class SingleCategory extends Component {
+export default class CategoryPage extends Component {
 
     state = {
         category: {},
@@ -20,7 +20,7 @@ export default class SingleCategory extends Component {
                     })
             })
     }
-
+ 
 
     render() {
         let postList = this.state.posts.map((post) => {
