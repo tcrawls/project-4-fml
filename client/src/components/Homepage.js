@@ -15,37 +15,37 @@ export default class Homepage extends Component {
     componentDidMount() {
         axios.get('/api/category')
             .then((res) => {
-                this.setState({ categories: res.data })
+                this.setState({ categories: res.data, formIsDisplayed: false })
             })
+    }
+
+    handleClick = (event) => {
+        event.preventDefault()
+        this.setState({ formIsDisplayed: !this.state.formIsDisplayed })
     }
 
 
     render() {
-        let categoryList = this.state.categories.map((category) => {
-            return (
-                <div>
-                    <Link key={category._id} to={`/category/${category._id}`}>{category.name}</Link>
-                </div>
-            )
-        })
-
         if (this.state.formIsDisplayed) {
             return (
                 <div>
-                    <h2>New Category</h2>
                     <CreateCategoryForm />
+                    <CategoryList
+                        categories={this.state.categories}
+                    />
                 </div>
             )
         }
-
         return (
             <div>
                 <h2>All Categories</h2>
-                <h2><a href="#">+</a></h2>
-                <CategoryList 
+                <button onClick={this.handleClick}>Create New</button>
+                {/* <h2><a href="#" onClick={handleClick}>+</a></h2> */}
+                <CategoryList
                     categories={this.state.categories}
                 />
             </div>
         )
     }
 }
+

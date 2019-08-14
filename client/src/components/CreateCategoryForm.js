@@ -18,9 +18,8 @@ export default class CreateCategoryForm extends Component {
     handleSubmit = (event) => {
         event.preventDefault()
         axios.post('/api/category', this.state.category)
-            .then((res) => {
+            .then(() => {
                 this.setState({
-                    category: res.data,
                     redirectToHome: true
                 })
             })
@@ -32,6 +31,7 @@ export default class CreateCategoryForm extends Component {
         }
         return (
             <div>
+                <h2>New Category</h2>
                 <form onSubmit={this.handleSubmit}>
                     <div>
                         <label htmlFor="name">Category Name: </label>

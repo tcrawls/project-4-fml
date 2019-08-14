@@ -1,13 +1,14 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import { Link } from 'react-router-dom'
+import { Link, Redirect } from 'react-router-dom'
 
 
 export default class CategoryPage extends Component {
 
     state = {
         category: {},
-        posts: []
+        posts: [],
+        redirectToHome: false
     }
 
     componentDidMount() {
@@ -19,14 +20,23 @@ export default class CategoryPage extends Component {
                         this.setState({ posts: response.data })
                     })
             })
+
     }
- 
+
+    handleDeleteCategory = () => {
+        axios.delete(`/api/category/${this.props.match.params.categoryId}`)
+            .then(() => {
+                this.setState({ redirectToHome: true })
+            })
+    }
 
     render() {
+        if (this.state.redirectToHome) {
+            return <Redirect to="/" />
+        }
         let postList = this.state.posts.map((post) => {
             return (
                 <div>
-                    
                     <Link key={post._id} to={`/post/${post._id}`}>
                         <p>{post.createdBy}</p>
                         <img src={post.image} alt="Post image" />
@@ -38,6 +48,7 @@ export default class CategoryPage extends Component {
         return (
             <div>
                 <h2>{this.state.category.name}</h2>
+                <button onClick={this.handleDeleteCategory}>Delete Category</button>
                 {postList}
             </div>
         )
