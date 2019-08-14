@@ -7,10 +7,10 @@ const postRouter = express.Router()
 
 
 postRouter.get('/byCategoryId/:categoryId', (req, res) => {
-  postApi.getPostsByCategoryId(req.params.categoryId)
-    .then((posts) => {
-      res.json(posts)
-    })
+    postApi.getPostsByCategoryId(req.params.categoryId)
+        .then((posts) => {
+            res.json(posts)
+        })
 })
 
 postRouter.get('/', (req, res) => {
@@ -22,20 +22,34 @@ postRouter.get('/', (req, res) => {
 
 postRouter.get('/:postId', (req, res) => {
     postApi.getSinglePost(req.params.postId)
-    .then((post) => {
-      res.json(post)
-    })
+        .then((post) => {
+            res.json(post)
+        })
 })
 
 postRouter.post('/', (req, res) => {
     postApi.addNewPost(req.body)
         .then((post) => {
             res.json(post)
-    })
+        })
+})
+
+postRouter.put('/:postId', (req, res) => {
+    postApi.updatePost(req.params.postId, req.body)
+        .then((post) => {
+            res.json(post)
+        })
+})
+
+postRouter.delete('/:postId', (req, res) => {
+    postApi.deletePost(req.params.postId)
+        .then((post) => {
+            res.json(post)
+        })
 })
 
 
 
 module.exports = {
-  postRouter
+    postRouter
 }
