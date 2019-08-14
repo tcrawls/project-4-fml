@@ -10,7 +10,7 @@ const PostSchema = new mongoose.Schema({
 
 const PostCollection = mongoose.model('Post', PostSchema)
 
-// CATEGORY MODEL FUNCTIONS:
+// POST MODEL FUNCTIONS:
 
 function getAllPosts() {
     return PostCollection.find()
