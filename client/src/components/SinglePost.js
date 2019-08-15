@@ -27,6 +27,7 @@ export default class SinglePost extends Component {
                 </Link>
                 <p>{this.props.caption}</p>
                 <button onClick={this.handleDeletePost}>Delete Post</button>
+                <Link to={`/post/${this.props.categoryId}/edit/${this.props.id}`}>Edit Post</Link>
             </div>
         )
     }
