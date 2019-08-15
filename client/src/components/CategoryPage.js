@@ -75,6 +75,9 @@ export default class CategoryPage extends Component {
             <div>
                 <h2>{this.state.category.name}</h2>
                 <button onClick={this.handleDeleteCategory}>Delete Category</button>
+                <div>
+                    <Link to={`/post/new/${this.props.match.params.categoryId}`}>Create New Post</Link>
+                </div>
                 {postList}
             </div>
         )

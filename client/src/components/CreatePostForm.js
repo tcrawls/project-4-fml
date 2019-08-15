@@ -5,7 +5,14 @@ import axios from 'axios'
 export default class CreatePostForm extends Component {
 
     state = {
-        categories: []
+        categories: [],
+        post: {
+            createdBy: '',
+            dateCreated: '',
+            image: '',
+            caption: '',
+            categoryId: this.props.match.params.categoryId
+        }
     }
 
     componentDidMount() {

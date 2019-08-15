@@ -15,8 +15,9 @@ function App() {
         <Switch>
           <Route exact path="/" component={Homepage} />
           <Route exact path="/category/:categoryId" component={CategoryPage} />
-          {/* <Route exact path="/category/new" component={} /> */}
-          <Route exact path="/post/new" component={CreatePostForm} />
+          {/* <Route exact 
+          path="/category/new" component={} /> */}
+          <Route exact path="/post/new/:categoryId" component={CreatePostForm} />
           <Route exact path="/post/:postId" component={PostPage} />
         </Switch>
       </Router>
