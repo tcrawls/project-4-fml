@@ -24,7 +24,6 @@ export default class Homepage extends Component {
         this.setState({ formIsDisplayed: !this.state.formIsDisplayed })
     }
 
-
     render() {
         if (this.state.formIsDisplayed) {
             return (
