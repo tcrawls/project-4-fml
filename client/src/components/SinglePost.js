@@ -21,14 +21,12 @@ export default class SinglePost extends Component {
         }
         return (
             <div>
-
-                {/* <Link key={post._id} to={`/post/${this.props.id}`}> */}
-                    <p>{this.props.createdBy}</p>
+                <p>Posted by {this.props.createdBy} on {this.props.dateCreated}:</p>
+                <Link key={this.props.id} to={`/post/${this.props.id}`}>
                     <img src={this.props.image} alt="Post image" />
-                {/* </Link> */}
+                </Link>
                 <p>{this.props.caption}</p>
                 <button onClick={this.handleDeletePost}>Delete Post</button>
-
             </div>
         )
     }
