@@ -6,7 +6,7 @@ export default class Navbar extends Component {
     render() {
         return (
             <nav className='navbar'>
-                <Link to="/"><div>Effemel</div></Link>
+                <Link to="/">Effemel</Link>
                 <Link to='#'>About</Link>
             </nav>
         )
