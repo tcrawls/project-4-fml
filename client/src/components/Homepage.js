@@ -5,6 +5,7 @@ import CreateCategoryForm from './CreateCategoryForm.js'
 import CategoryList from './CategoryList.js'
 
 
+
 export default class Homepage extends Component {
 
     state = {
@@ -37,8 +38,14 @@ export default class Homepage extends Component {
         }
         return (
             <div>
-                <h2>All Categories</h2>
-                <button onClick={this.handleClick}>Create New</button>
+                <div>
+                    <img src="https://www.merriam-webster.com/assets/mw/images/article/art-wap-article-main/alt-5b9729d4aa97e-5597-8182b25d498fa69004c49726a7b499a6@1x.jpg" />
+                </div>
+                <div>
+                    <Link to='/post/new'>Create Post</Link>
+                </div>
+                <h3>Browse by Category:</h3>
+                <button onClick={this.handleClick}>+</button>
                 {/* <h2><a href="#" onClick={handleClick}>+</a></h2> */}
                 <CategoryList
                     categories={this.state.categories}
