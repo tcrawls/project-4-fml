@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import { Link } from 'react-router-dom'
+import { Redirect, Link } from 'react-router-dom'
+import SingleComment from './SingleComment.js'
 
 
 export default class PostPage extends Component {
@@ -23,17 +24,26 @@ export default class PostPage extends Component {
 
 
     render() {
+        if (this.state.redirectToHome) {
+            return <Redirect to="/" />
+        }
         let commentList = this.state.comments.map((comment) => {
             return (
-                <div>
-                    <p>{comment.createdBy}</p>
-                    <p>{comment.dateCreated}</p>
-                    <p>{comment.description}</p>
-                </div>
+                <SingleComment
+                    key={comment._id}
+                    id={comment._id}
+                    createdBy={comment.createdBy}
+                    dateCreated={comment.dateCreated}
+                    description={comment.description}
+                    postId={comment.postId}
+                />
             )
         })
         return (
             <div>
+                <div>
+                    <Link to={`/category/${this.state.post.categoryId}`}>Back to Category Page</Link>
+                </div>
                 <p>Posted by {this.state.post.createdBy} on {this.state.post.dateCreated}:</p>
                 <img src={this.state.post.image} alt="Post Image" />
                 <p>{this.state.post.caption}</p>
