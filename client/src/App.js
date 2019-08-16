@@ -6,6 +6,8 @@ import CategoryPage from './components/CategoryPage.js'
 import PostPage from './components/PostPage.js'
 import CreatePostForm from './components/CreatePostForm.js'
 import EditPostForm from './components/EditPostForm.js'
+import CreateCommentForm from './components/CreateCommentForm.js'
+import EditCommentForm from './components/EditCommentForm.js'
 import './App.css';
 
 function App() {
@@ -16,11 +18,11 @@ function App() {
         <Switch>
           <Route exact path="/" component={Homepage} />
           <Route exact path="/category/:categoryId" component={CategoryPage} />
-          {/* <Route exact 
-          path="/category/new" component={} /> */}
           <Route exact path="/post/:categoryId/new" component={CreatePostForm} />
           <Route exact path="/post/:categoryId/edit/:postId" component={EditPostForm} />
           <Route exact path="/post/:postId" component={PostPage} />
+          <Route exact path="/comment/:postId/new" component={CreateCommentForm} />
+          <Route exact path="/comment/:postId/edit/:commentId" component={EditCommentForm} />
         </Switch>
       </Router>
     </div>

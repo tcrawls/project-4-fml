@@ -48,6 +48,7 @@ export default class PostPage extends Component {
                 <img src={this.state.post.image} alt="Post Image" />
                 <p>{this.state.post.caption}</p>
                 <h3>Comments:</h3>
+                <Link to={`/comment/${this.props.match.params.postId}/new`}>Add Comment</Link>
                 {commentList}
             </div>
         )
