@@ -26,7 +26,7 @@ export default class SingleComment extends Component {
                 <p>Date: {this.props.dateCreated}</p>
                 <p>Comment: {this.props.description}</p>
                 <button onClick={this.handleDeletePost}>Delete Comment</button>
-                {/* <Link to={`/comment/${this.props.postId}/edit/${this.props.id}`}>Edit Comment</Link> */}
+                <Link to={`/comment/${this.props.postId}/edit/${this.props.id}`}>Edit Comment</Link>
             </div>
         )
     }
