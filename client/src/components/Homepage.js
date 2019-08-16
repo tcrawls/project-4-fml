@@ -27,9 +27,9 @@ export default class Homepage extends Component {
             return (
                 <div>
                     <CreateCategoryForm />
-                    <CategoryList
+                    {/* <CategoryList
                         categories={this.state.categories}
-                    />
+                    /> */}
                 </div>
             )
         }
@@ -38,9 +38,9 @@ export default class Homepage extends Component {
                 <div>
                     <img src="https://www.merriam-webster.com/assets/mw/images/article/art-wap-article-main/alt-5b9729d4aa97e-5597-8182b25d498fa69004c49726a7b499a6@1x.jpg" />
                 </div>
-                <div>
+                {/* <div>
                     <Link to='/post/new'>Create Post</Link>
-                </div>
+                </div> */}
                 <h3>Browse by Category:</h3>
                 <button onClick={this.handleClick}>+</button>
                 {/* <h2><a href="#" onClick={handleClick}>+</a></h2> */}

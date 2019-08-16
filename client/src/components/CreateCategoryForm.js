@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import { Redirect } from 'react-router-dom'
+// import { Redirect } from 'react-router-dom'
+import Homepage from './Homepage.js'
+
 
 export default class CreateCategoryForm extends Component {
 
@@ -27,7 +29,7 @@ export default class CreateCategoryForm extends Component {
 
     render() {
         if (this.state.redirectToHome) {
-            return <Redirect to="/" />
+            return <Homepage />
         }
         return (
             <div>
