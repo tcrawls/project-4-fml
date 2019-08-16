@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import axios from 'axios';
 import { Redirect } from 'react-router-dom'
 
-
 export default class EditCommentForm extends Component {
 
     state = {
@@ -21,13 +20,11 @@ export default class EditCommentForm extends Component {
                 this.setState({ comment: res.data })
             })
     }
-
     handleInputChange = (event) => {
         const copiedComment = { ...this.state.comment }
         copiedComment[event.target.name] = event.target.value
         this.setState({ comment: copiedComment })
     }
-
     handleSubmit = (event) => {
         event.preventDefault()
         axios.put(`/api/comment/${this.props.match.params.commentId}`, this.state.comment)

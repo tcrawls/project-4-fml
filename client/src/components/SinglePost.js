@@ -9,6 +9,7 @@ export default class SinglePost extends Component {
     }
 
     handleDeletePost = (event) => {
+        event.preventDefault()
         axios.delete(`/api/post/${this.props.id}`)
             .then(() => {
                 this.setState({ wasDeleted: true })

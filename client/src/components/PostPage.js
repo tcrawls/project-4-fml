@@ -22,7 +22,6 @@ export default class PostPage extends Component {
             })
     }
 
-
     render() {
         if (this.state.redirectToHome) {
             return <Redirect to="/" />

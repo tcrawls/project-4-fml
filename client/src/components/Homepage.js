@@ -4,8 +4,6 @@ import { Link } from 'react-router-dom'
 import CreateCategoryForm from './CreateCategoryForm.js'
 import CategoryList from './CategoryList.js'
 
-
-
 export default class Homepage extends Component {
 
     state = {
@@ -19,7 +17,6 @@ export default class Homepage extends Component {
                 this.setState({ categories: res.data, formIsDisplayed: false })
             })
     }
-
     handleClick = (event) => {
         event.preventDefault()
         this.setState({ formIsDisplayed: !this.state.formIsDisplayed })
