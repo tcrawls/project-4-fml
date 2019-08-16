@@ -20,6 +20,7 @@ export default class SinglePost extends Component {
         if (this.state.wasDeleted) {
             return <Redirect to={`/category/${this.props.categoryId}`} />
         }
+        
         return (
             <div>
                 <p>Posted by {this.props.createdBy} on {this.props.dateCreated}:</p>
@@ -29,6 +30,7 @@ export default class SinglePost extends Component {
                 <p>{this.props.caption}</p>
                 <button onClick={this.handleDeletePost}>Delete Post</button>
                 <Link to={`/post/${this.props.categoryId}/edit/${this.props.id}`}>Edit Post</Link>
+                
             </div>
         )
     }

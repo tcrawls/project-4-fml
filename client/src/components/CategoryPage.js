@@ -47,6 +47,7 @@ export default class CategoryPage extends Component {
                 />
             )
         })
+        let displayedPostList = postList.reverse()
         return (
             <div>
                 <div>
@@ -57,7 +58,7 @@ export default class CategoryPage extends Component {
                 <div>
                     <Link to={`/post/${this.props.match.params.categoryId}/new`}>Create New Post</Link>
                 </div>
-                {postList}
+                {displayedPostList}
             </div>
         )
     }
