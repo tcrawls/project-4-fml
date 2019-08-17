@@ -42,7 +42,8 @@ export default class SinglePost extends Component {
                 />
             )
         })
-        let displayedCommentList = commentList.reverse()
+        let sortedCommentList = commentList.reverse()
+        let displayedComment = sortedCommentList[0]
         return (
             <div>
                 <p>Posted by {this.props.createdBy} on {this.props.dateCreated}:</p>
@@ -53,7 +54,7 @@ export default class SinglePost extends Component {
                 <button onClick={this.handleDeletePost}>Delete Post</button>
                 <Link to={`/post/${this.props.categoryId}/edit/${this.props.id}`}>Edit Post</Link>
                 <h3>Comments:</h3>
-                {displayedCommentList}
+                {displayedComment}
             </div>
         )
     }
