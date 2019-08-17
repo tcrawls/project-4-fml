@@ -20,7 +20,6 @@ export default class CategoryPage extends Component {
                         this.setState({ posts: response.data })
                     })
             })
-
     }
     handleDeleteCategory = (event) => {
         event.preventDefault()

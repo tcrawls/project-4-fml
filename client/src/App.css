@@ -36,13 +36,9 @@
   background-color: lightgray;
   text-align-last: left;
   height: fit-content;
-  /* display: flex;
-  flex-direction: row;
-  justify-content: space-around; */
 }
 
 .navbar a {
-  /* color: white; */
   text-decoration: none;
   font-size: 2em;
   display: inline-block;
