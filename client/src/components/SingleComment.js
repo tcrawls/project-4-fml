@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import { Link, Redirect } from 'react-router-dom'
+import IconButton from '@material-ui/core/IconButton';
+import DeleteIcon from '@material-ui/icons/Delete';
 
 export default class SingleComment extends Component {
 
@@ -22,8 +24,11 @@ export default class SingleComment extends Component {
         }
         return (
             <div>
-                <p>{this.props.createdBy}: "{this.props.description}"</p>
-                <button onClick={this.handleDeletePost}>Delete Comment</button>
+                <p><strong>{this.props.createdBy}</strong>    {this.props.description}</p>
+                {/* <button onClick={this.handleDeletePost}>Delete Comment</button> */}
+                <IconButton onClick={this.handleDeletePost} aria-label="delete">
+                    <DeleteIcon />
+                </IconButton>
                 <Link to={`/comment/${this.props.postId}/edit/${this.props.id}`}>Edit Comment</Link>
             </div>
         )
