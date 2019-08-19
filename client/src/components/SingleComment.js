@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import { Link, Redirect } from 'react-router-dom'
 import IconButton from '@material-ui/core/IconButton';
+import Icon from '@material-ui/core/Icon';
 import DeleteIcon from '@material-ui/icons/Delete';
 
 export default class SingleComment extends Component {
@@ -26,10 +27,13 @@ export default class SingleComment extends Component {
             <div>
                 <p><strong>{this.props.createdBy}</strong>    {this.props.description}</p>
                 {/* <button onClick={this.handleDeletePost}>Delete Comment</button> */}
+                <IconButton color="disable-primary" aria-label="edit comment">
+                    <Icon component={Link} to={`/comment/${this.props.postId}/edit/${this.props.id}`}>edit</Icon>                    
+                </IconButton>
                 <IconButton onClick={this.handleDeletePost} aria-label="delete">
                     <DeleteIcon />
                 </IconButton>
-                <Link to={`/comment/${this.props.postId}/edit/${this.props.id}`}>Edit Comment</Link>
+                {/* <Link to={`/comment/${this.props.postId}/edit/${this.props.id}`}>Edit Comment</Link> */}
             </div>
         )
     }
