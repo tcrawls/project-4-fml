@@ -6,6 +6,7 @@ import IconButton from '@material-ui/core/IconButton';
 import Icon from '@material-ui/core/Icon';
 import DeleteIcon from '@material-ui/icons/Delete';
 
+
 export default class PostPage extends Component {
 
     state = {
@@ -71,6 +72,14 @@ export default class PostPage extends Component {
             padding: "5px 16px"
         }
 
+        const commentButton = {
+            // padding: "10px"
+        }
+
+        const commentIcon = {
+            padding: "5px"
+        }
+
         if (this.state.wasDeleted) {
             return <Redirect to={`/category/${this.state.categoryId}`} />
         }
@@ -95,12 +104,12 @@ export default class PostPage extends Component {
                 <div style={postContainer}>
                     <div style={postTop}>
                         <div style={postSubmitter}>
-                            Posted by: <b>{this.state.post.createdBy}</b>
+                            <b>{this.state.post.createdBy}</b>:
                         </div>
-                        <div style={postButtons}>
-                            <Link to={`/post/${this.props.categoryId}/edit/${this.props.id}`}>Edit Post</Link>
-                            {/* <button onClick={this.handleDeletePost}>Delete Post</button> */}
-                            {/* <DeleteIcon onClick={this.handleDeletePost} /> */}
+                        <div style={postButtons} component={Link} to={`/post/${this.state.categoryId}/edit/${this.props.match.params.postId}`}>
+                            <IconButton color="disable-primary" aria-label="edit post">
+                                <Icon>edit</Icon>                    
+                            </IconButton>
                             <IconButton onClick={this.handleDeletePost} aria-label="delete">
                                 <DeleteIcon />
                             </IconButton>
@@ -113,8 +122,9 @@ export default class PostPage extends Component {
                         <p>{this.state.post.caption}</p>
                         {/* <p>Comments:</p> */}
                         {/* <Link to={`/comment/${this.props.match.params.postId}/new`}>Add Comment</Link> */}
-                        <IconButton component={Link} to={`/comment/${this.props.match.params.postId}/new`} color="primary" aria-label="add comment">
-                            <Icon>add_comment</Icon>
+                        <IconButton style={commentButton} component={Link} to={`/comment/${this.props.match.params.postId}/new`} color="primary" size="small" variant="contained" aria-label="add comment">
+                            Add Comment
+                            <Icon style={commentIcon}>add_comment</Icon>
                         </IconButton>
                         <div>{displayedCommentList}</div>
                     </div>
