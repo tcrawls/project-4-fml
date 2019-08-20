@@ -106,8 +106,8 @@ export default class PostPage extends Component {
                         <div style={postSubmitter}>
                             <b>{this.state.post.createdBy}</b>:
                         </div>
-                        <div style={postButtons} component={Link} to={`/post/${this.state.categoryId}/edit/${this.props.match.params.postId}`}>
-                            <IconButton color="disable-primary" aria-label="edit post">
+                        <div style={postButtons}>
+                            <IconButton component={Link} to={`/post/${this.state.post.categoryId}/edit/${this.props.match.params.postId}`} color="disable-primary" aria-label="edit post">
                                 <Icon>edit</Icon>                    
                             </IconButton>
                             <IconButton onClick={this.handleDeletePost} aria-label="delete">
