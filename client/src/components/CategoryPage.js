@@ -4,10 +4,9 @@ import { Link, Redirect } from 'react-router-dom'
 // import SinglePost from './SinglePost.js'
 import SinglePost3 from './SinglePost3.js'
 import Typography from '@material-ui/core/Typography';
-import Button from '@material-ui/core/Button';
-
-
-
+import Fab from '@material-ui/core/Fab'
+import IconButton from '@material-ui/core/IconButton';
+import DeleteIcon from '@material-ui/icons/Delete';
 
 export default class CategoryPage extends Component {
 
@@ -36,7 +35,6 @@ export default class CategoryPage extends Component {
     }
 
     render() {
-
         const postContainer = {
             marginBottom: "50px"
         }
@@ -70,16 +68,19 @@ export default class CategoryPage extends Component {
                 <div style={header}>
                     <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
                         {this.state.category.name}
+                        <IconButton onClick={this.handleDeleteCategory} aria-label="delete">
+                            <DeleteIcon />
+                        </IconButton>
                     </Typography>
-                    <Button variant="contained" color="primary" align="center" component={Link} to={`/post/${this.props.match.params.categoryId}/new`}>
-                        Post a Photo
-                    </Button>
+                    
+                    <Fab variant="contained" color="primary" align="center" component={Link} to={`/post/${this.props.match.params.categoryId}/new`}>
+                        Create New Post
+                    </Fab>
                 </div>
-
-                <button onClick={this.handleDeleteCategory}>Delete Category</button>
+                {/* <button onClick={this.handleDeleteCategory}>Delete Category</button>
                 <div>
                     <Link to={`/post/${this.props.match.params.categoryId}/new`}>Create New Post</Link>
-                </div>
+                </div> */}
                 <div style={postContainer}>{displayedPostList}</div>
             </div>
         )
