@@ -95,7 +95,7 @@ export default class PostPage extends Component {
                 />
             )
         })
-        let displayedCommentList = commentList.reverse()
+        // let displayedCommentList = commentList.reverse()
         return (
             <div>
                 <div>
@@ -126,7 +126,7 @@ export default class PostPage extends Component {
                             Add Comment
                             <Icon style={commentIcon}>add_comment</Icon>
                         </IconButton>
-                        <div>{displayedCommentList}</div>
+                        <div>{commentList}</div>
                     </div>
                 </div>
             </div>

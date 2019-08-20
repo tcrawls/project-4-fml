@@ -25,19 +25,25 @@ export default class SingleComment extends Component {
             paddingRight: "7px"
         }
 
-        const commentContent = {
-            margin: "3px"
-        }
-
         const commentContainer = {
-            backgroundColor: "#fff",
-            borderRadius: "3px",
+            backgroundColor: "#fff"
+            // borderRadius: "3px",
             // margin: "5px auto",
-            border: "1px solid #e6e6e6"
+            // border: "1px solid #e6e6e6"
         }
 
+        const commentContent = {
+            display: "flex",
+            justifyContent: "flex-start"
+        }
         const commentButtons = {
-            margin: "2px 2px"
+            margin: "2px 2px",
+            display: "flex",
+            justifyContent: "flex-end"
+        }
+
+        const commentText = {
+            width: "550px"
         }
 
         if (this.state.wasDeleted) {
@@ -45,14 +51,18 @@ export default class SingleComment extends Component {
         }
         return (
             <div style={commentContainer}>
-                <p style={commentContent}><strong style={userName}>{this.props.createdBy}</strong>{this.props.description}</p>
-                <div style={commentButtons}>
-                    <IconButton component={Link} to={`/comment/${this.props.postId}/edit/${this.props.id}`} color="disable-primary" aria-label="edit comment">
-                        <Icon>edit</Icon>
-                    </IconButton>
-                    <IconButton onClick={this.handleDeletePost} aria-label="delete">
-                        <DeleteIcon />
-                    </IconButton>
+                <div style={commentContent}>
+                    <div style={commentText}>
+                        <p><strong style={userName}>{this.props.createdBy}</strong>{this.props.description}</p>
+                    </div>
+                    <div style={commentButtons}>
+                        <IconButton component={Link} to={`/comment/${this.props.postId}/edit/${this.props.id}`} color="disable-primary" aria-label="edit comment">
+                            <Icon>edit</Icon>
+                        </IconButton>
+                        <IconButton onClick={this.handleDeletePost} aria-label="delete">
+                            <DeleteIcon />
+                        </IconButton>
+                    </div>
                 </div>
             </div>
         )
