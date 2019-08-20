@@ -3,6 +3,10 @@ import axios from 'axios'
 import { Link, Redirect } from 'react-router-dom'
 // import SinglePost from './SinglePost.js'
 import SinglePost3 from './SinglePost3.js'
+import Typography from '@material-ui/core/Typography';
+import Button from '@material-ui/core/Button';
+
+
 
 
 export default class CategoryPage extends Component {
@@ -37,6 +41,11 @@ export default class CategoryPage extends Component {
             marginBottom: "50px"
         }
 
+        const header = {
+            marginTop: "20px",
+            textAlign: "center"
+        }
+
         if (this.state.redirectToHome) {
             return <Redirect to="/" />
         }
@@ -58,10 +67,15 @@ export default class CategoryPage extends Component {
         let displayedPostList = postList.reverse()
         return (
             <div>
-                <div>
-                    <Link to='/'>Back to Home Page</Link>
+                <div style={header}>
+                    <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
+                        {this.state.category.name}
+                    </Typography>
+                    <Button variant="contained" color="primary" align="center" component={Link} to={`/post/${this.props.match.params.categoryId}/new`}>
+                        Post a Photo
+                    </Button>
                 </div>
-                <h2>{this.state.category.name}</h2>
+
                 <button onClick={this.handleDeleteCategory}>Delete Category</button>
                 <div>
                     <Link to={`/post/${this.props.match.params.categoryId}/new`}>Create New Post</Link>

@@ -3,6 +3,7 @@ import axios from 'axios'
 import { Redirect, Link } from 'react-router-dom'
 // import SingleComment from './SingleComment.js'
 import IconButton from '@material-ui/core/IconButton';
+import Button from '@material-ui/core/Button';
 import Icon from '@material-ui/core/Icon';
 import DeleteIcon from '@material-ui/icons/Delete';
 import CommentList from './CommentList.js'
@@ -134,15 +135,15 @@ export default class SinglePost3 extends Component {
                         title="Post Image"
                     />
                     <CardContent>
-                        <Typography variant="body2" color="textSecondary" component="p">
+                        <Typography variant="body2" color="textPrimary" component="p">
                             {this.props.caption}
                         </Typography>
                     </CardContent>
                     <CardActions>
-                        <IconButton component={Link} to={`/comment/${this.props.postId}/new`} color="primary" size="small" variant="contained" aria-label="add comment">
+                        <Button component={Link} to={`/comment/${this.props.postId}/new`} color="primary" size="small" variant="contained" aria-label="add comment">
                             Add Comment
                             <Icon>add_comment</Icon>
-                        </IconButton>
+                        </Button>
                     </CardActions>
 
                     <CardContent>
