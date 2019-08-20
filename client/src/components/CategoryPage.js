@@ -1,7 +1,9 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import { Link, Redirect } from 'react-router-dom'
-import SinglePost from './SinglePost.js'
+// import SinglePost from './SinglePost.js'
+import SinglePost3 from './SinglePost3.js'
+
 
 export default class CategoryPage extends Component {
 
@@ -30,20 +32,27 @@ export default class CategoryPage extends Component {
     }
 
     render() {
+
+        const postContainer = {
+            marginBottom: "50px"
+        }
+
         if (this.state.redirectToHome) {
             return <Redirect to="/" />
         }
         let postList = this.state.posts.map((post) => {
             return (
-                <SinglePost
-                    key={post._id}
-                    id={post._id}
-                    createdBy={post.createdBy}
-                    caption={post.caption}
-                    dateCreated={post.dateCreated}
-                    image={post.image}
-                    categoryId={post.categoryId}
-                />
+                <div>
+                    <SinglePost3
+                        key={post._id}
+                        postId={post._id}
+                        createdBy={post.createdBy}
+                        caption={post.caption}
+                        dateCreated={post.dateCreated}
+                        image={post.image}
+                        categoryId={post.categoryId}
+                    />
+                </div>
             )
         })
         let displayedPostList = postList.reverse()
@@ -57,7 +66,7 @@ export default class CategoryPage extends Component {
                 <div>
                     <Link to={`/post/${this.props.match.params.categoryId}/new`}>Create New Post</Link>
                 </div>
-                {displayedPostList}
+                <div style={postContainer}>{displayedPostList}</div>
             </div>
         )
     }
