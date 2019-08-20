@@ -7,27 +7,17 @@ import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 
-
-
 export default class Navbar extends Component {
     render() {
 
-        const icon = {
-            marginRight: "10px"
-        }
-
         return (
-            // <nav className='navbar'>
-            //     <Link to="/">Effemel</Link>
-            //     <Link to='#'>About</Link>
-            // </nav>
             <div>
                 <AppBar position="relative">
                     <Toolbar>
-                        <CameraIcon style={icon} />
+                        <CameraIcon />
                         <Button component={Link} to={'/'} variant="h5" color="inherit" noWrap>
                         <Typography variant="h5" color="inherit" noWrap>
-                                Effemel
+                                FamGram
                         </Typography>
                         </Button>
                     </Toolbar>
