@@ -3,8 +3,6 @@ import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
 
-
-
 export default class CategoryList extends Component {
     render() {
         const itemStyle = {
@@ -16,7 +14,6 @@ export default class CategoryList extends Component {
         const item = {
             textAlign: 'center',
         }
-
         let categoryList = this.props.categories.map((category) => {
             return (
                 <div>

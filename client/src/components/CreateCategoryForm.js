@@ -5,9 +5,8 @@ import Homepage from './Homepage.js'
 import Button from '@material-ui/core/Button';
 import Icon from '@material-ui/core/Icon';
 
-
 export default class CreateCategoryForm extends Component {
-
+    
     state = {
         category: {},
         redirectToHome: false
@@ -18,7 +17,6 @@ export default class CreateCategoryForm extends Component {
         copiedCategory[event.target.name] = event.target.value
         this.setState({ category: copiedCategory })
     }
-
     handleSubmit = (event) => {
         event.preventDefault()
         axios.post('/api/category', this.state.category)

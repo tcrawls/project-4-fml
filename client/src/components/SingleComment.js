@@ -20,18 +20,15 @@ export default class SingleComment extends Component {
     }
 
     render() {
-
         const userName = {
             paddingRight: "7px"
         }
-
         const commentContainer = {
             backgroundColor: "#fff"
             // borderRadius: "3px",
             // margin: "5px auto",
             // border: "1px solid #e6e6e6"
         }
-
         const commentContent = {
             display: "flex",
             justifyContent: "flex-start"
@@ -41,11 +38,9 @@ export default class SingleComment extends Component {
             display: "flex",
             justifyContent: "flex-end"
         }
-
         const commentText = {
             width: "550px"
         }
-
         if (this.state.wasDeleted) {
             return <Redirect to={`/post/${this.props.postId}`} />
         }

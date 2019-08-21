@@ -1,28 +1,20 @@
 import React, { Component } from 'react'
-import { Redirect, Link } from 'react-router-dom'
-// import SingleComment from './SingleComment.js'
+import { Link } from 'react-router-dom'
 import IconButton from '@material-ui/core/IconButton';
 import Icon from '@material-ui/core/Icon';
 import SingleComment from './SingleComment.js'
 
-
-
 export default class CommentList extends Component {
-
     render() {
-
         const commentButton = {
             // padding: "10px"
         }
-
         const commentIcon = {
             // padding: "5px"
         }
-
         const postComments = {
             padding: "5px 16px"
         }
-
         let commentSection = this.props.comments.map((comment) => {
             return (
                 <SingleComment
@@ -35,11 +27,6 @@ export default class CommentList extends Component {
                 />
             )
         })
-
-        //if commentList.length > 0, render Add Comment button + CommentList 
-        //otherwise, just render Add Comment button
-
-
         return (
             <div style={postComments}>
                 <div>

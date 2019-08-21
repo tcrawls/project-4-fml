@@ -21,7 +21,6 @@ export default class SelectCategoryList extends Component {
         const selectAlbum = {
             marginTop: "20px"
         }
-
         let categoryList = this.props.location.state.categories.map((category) => {
             return (
                 <div>

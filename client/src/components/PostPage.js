@@ -13,7 +13,6 @@ import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
 import Typography from '@material-ui/core/Typography';
 
-
 export default class PostPage extends Component {
 
     state = {
@@ -31,8 +30,8 @@ export default class PostPage extends Component {
                 axios.get(`/api/comment/byPostId/${this.props.match.params.postId}`)
                     .then((response) => {
                         this.setState({ comments: response.data })
+                    })
             })
-        })
     }
     handleDeletePost = (event) => {
         event.preventDefault()
@@ -80,7 +79,6 @@ export default class PostPage extends Component {
         const postTextContent = {
             padding: "5px 16px"
         }
-
         // const commentButton = {
         //     // padding: "10px"
         // }
@@ -88,13 +86,11 @@ export default class PostPage extends Component {
         // const commentIcon = {
         //     padding: "5px"
         // }
-
         const media = {
             maxHeight: "300px",
             paddingTop: "56.25%",
             width: "600px",
         }
-
         const backButton = {
             marginTop: "7px",
             marginLeft: "15px"
@@ -115,13 +111,12 @@ export default class PostPage extends Component {
                 />
             )
         })
-
         return (
             <div>
                 {/* <Link to={`/category/${this.state.post.categoryId}`} /> */}
                 <Button style={backButton} component={Link} to={`/category/${this.state.post.categoryId}`} color="primary" aria-label="back" >
-                        <Icon>arrow_back</Icon>
-                        Back to album
+                    <Icon>arrow_back</Icon>
+                    Back to album
                 </Button>
                 <Card style={postContainer}>
                     <CardHeader
@@ -137,7 +132,7 @@ export default class PostPage extends Component {
                         }
                         title={this.state.post.createdBy}
                     />
-                    <CardMedia 
+                    <CardMedia
                         style={media}
                         image={this.state.post.image}
                         title="Post Image"
@@ -153,7 +148,6 @@ export default class PostPage extends Component {
                             <Icon>add_comment</Icon>
                         </Button>
                     </CardActions>
-
                     <CardContent>
                         <Typography>
                             {commentList}

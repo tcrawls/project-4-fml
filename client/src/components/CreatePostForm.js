@@ -3,8 +3,6 @@ import axios from 'axios'
 import { Redirect, Link } from 'react-router-dom'
 import Button from '@material-ui/core/Button';
 import Icon from '@material-ui/core/Icon';
-import TextField from '@material-ui/core/TextField';
-
 
 export default class CreatePostForm extends Component {
 
@@ -47,7 +45,6 @@ export default class CreatePostForm extends Component {
         const inputStyle = {
             margin: "10px"
         }
-
         if (this.state.redirectToCategoryPage) {
             return <Redirect to={`/category/${this.props.match.params.categoryId}`} />
         }
@@ -59,13 +56,6 @@ export default class CreatePostForm extends Component {
             </Button>
                 <h2 style={formStyle}>New Post</h2>
                 <form onSubmit={this.handleSubmit} style={formStyle}>
-                    {/* <TextField
-                        id="createdBy"
-                        label="Posted By:"
-                        value={this.state.post.createdBy}
-                        onChange={this.handleInputChange}
-                        margin="normal"
-                    /> */}
                     <div style={inputStyle}>
                         <label htmlFor="createdBy">Posted By: </label>
                         <input type="text" id="createdBy" name="createdBy" onChange={this.handleInputChange} value={this.state.post.createdBy} />

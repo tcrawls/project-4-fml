@@ -5,7 +5,6 @@ import IconButton from '@material-ui/core/IconButton';
 import Button from '@material-ui/core/Button';
 import Icon from '@material-ui/core/Icon';
 import DeleteIcon from '@material-ui/icons/Delete';
-import CommentList from './CommentList.js'
 import SingleComment from './SingleComment.js'
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
@@ -13,7 +12,6 @@ import CardMedia from '@material-ui/core/CardMedia';
 import CardContent from '@material-ui/core/CardContent';
 import CardActions from '@material-ui/core/CardActions';
 import Typography from '@material-ui/core/Typography';
-
 
 export default class SinglePost extends Component {
 
@@ -28,7 +26,6 @@ export default class SinglePost extends Component {
                 this.setState({ comments: response.data })
             })
     }
-
     handleDeletePost = (event) => {
         event.preventDefault()
         axios.delete(`/api/post/${this.props.postId}`)
@@ -100,7 +97,6 @@ export default class SinglePost extends Component {
                 />
             )
         })
-
         return (
             <div>
                 <Card style={postContainer}>
@@ -117,8 +113,8 @@ export default class SinglePost extends Component {
                         }
                         title={`${this.props.createdBy} posted in ${this.props.categoryName}:`}
                     />
-                    <CardMedia 
-                        component={Link} 
+                    <CardMedia
+                        component={Link}
                         to={`/post/${this.props.postId}`}
                         style={media}
                         image={this.props.image}

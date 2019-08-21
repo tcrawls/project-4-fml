@@ -8,7 +8,6 @@ import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 
-
 export default class Homepage extends Component {
 
     state = {
@@ -45,7 +44,6 @@ export default class Homepage extends Component {
         const heroButtonIndividual = {
             width: "175px"
         }
-
         if (this.state.formIsDisplayed) {
             return (
                 <div>
@@ -55,7 +53,6 @@ export default class Homepage extends Component {
         }
         return (
             <div>
-
                 <div style={heroContent}>
                     <Container maxWidth="sm">
                         <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
@@ -67,12 +64,11 @@ export default class Homepage extends Component {
                         <div style={heroButtons}>
                             <Grid container spacing={2} justify="center">
                                 <Grid item>
-                                    <Button component={Link} 
-                                        // to={`/category/select`} 
+                                    <Button component={Link}
                                         to={{
                                             pathname: '/category/select',
                                             state: {
-                                              categories: this.state.categories
+                                                categories: this.state.categories
                                             }
                                         }}
                                         style={heroButtonIndividual} variant="contained" color="primary">
@@ -88,7 +84,6 @@ export default class Homepage extends Component {
                         </div>
                     </Container>
                 </div>
-
                 <div style={listStyle}>
                     <Typography variant="h5" align="center" color="textPrimary" gutterBottom>
                         Browse Albums:

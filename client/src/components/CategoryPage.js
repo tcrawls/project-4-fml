@@ -10,7 +10,7 @@ import Button from '@material-ui/core/Button';
 import Icon from '@material-ui/core/Icon';
 
 export default class CategoryPage extends Component {
-
+    
     state = {
         category: {},
         posts: [],
@@ -47,7 +47,6 @@ export default class CategoryPage extends Component {
             marginTop: "7px",
             marginLeft: "15px"
         }
-
         if (this.state.redirectToHome) {
             return <Redirect to="/" />
         }
