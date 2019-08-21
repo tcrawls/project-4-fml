@@ -28,9 +28,7 @@ export default class Homepage extends Component {
     }
 
     render() {
-
         const listStyle = {
-            // width: '100%',
             textAlign: 'center',
             margin: '0 auto',
             paddingTop: '20px',
@@ -52,9 +50,6 @@ export default class Homepage extends Component {
             return (
                 <div>
                     <CreateCategoryForm />
-                    {/* <CategoryList
-                        categories={this.state.categories}
-                    /> */}
                 </div>
             )
         }
@@ -67,9 +62,7 @@ export default class Homepage extends Component {
                             FamGram
                         </Typography>
                         <Typography variant="h5" align="center" color="textSecondary" paragraph>
-                            Something short and leading about the collection below—its contents, the creator, etc.
-                            Make it short and sweet, but not too short so folks don&apos;t simply skip over it
-                            entirely.
+                            A family-centered celebration of life's memorable moments. Share and celebrate moments with the ones you love.
                         </Typography>
                         <div style={heroButtons}>
                             <Grid container spacing={2} justify="center">

@@ -1,31 +1,41 @@
-# mern-template-project
+# FamGram
 
-# Setup A New Project From This Template
+General Assembly SEI 22 - Project #4 - August 2019
+  * Heroku: https://project-4-fml.herokuapp.com/
+  * Github: https://github.com/tcrawls/project-4-fml
+  * Project board: https://trello.com/b/w6MDQDM1/project-4-sei22
+  
 
-If you are starting a new project do the following:
+## Overview
 
-1. copy/download this directory to where you new project is located and rename
-   it to the name of your project.
-1. change your directory (`cd`) into the copied project template
-1. `npm install`
-1. `npm run dev`
-1. Open a new browser window and navigate to the URL http://localhost:3000/
-    here you should see `hello world` displayed after page load
-    updates should show up here automatically
-1. see the `client/src` `readme.md` file for more information on the react project
+My objective for Project 4 was to further develop my programming skills and gain additional experience building a full-stack application using the MERN stack (React, Node/Express and MongoDB/Mongoose). I chose to create a social app that would allow users to create photo "albums," post and share images within these albums (via social cards/posts), and comment on individual posts.
 
-# Setup A New Project Without This Template
+For the current version (version 1), my goal was to build the core functionality that would enable users to add/edit albums, posts and comments, as well as to integrate these key pieces of functionality throughout the user experience. Additionally, I sought to create an application that would be adaptable - i.e. could serve as a "platform" for future skill-building and advanced feature development opportunities as I hone my programming skills (see "Future Development" below).
 
-If you want to start a project without using this template directory do the
-following:
+## ERD
+https://drive.google.com/file/d/0B6vqeu7iFNpGWU96LUdpb242ZC1WdnlwTU5MM1E1WnMwdkdz/view?usp=sharing
 
+## Wireframes
+https://drive.google.com/file/d/1SFnrmkp2z8QK0y_rk9eBI719qa2egMB9/view?usp=sharing
+https://drive.google.com/file/d/1tz160HP3_22X5ZHdZg7BnT4i4FMQgJe_/view?usp=sharing
+https://drive.google.com/file/d/19zBPUy40l_ILMestFobnLpewfUB_9Yqw/view?usp=sharing
 
-1. `mkdir <project-name>`
-1. `cd <project-name>`
-1. `echo "# <project-name>" > readme.md`
-1. `git init`
-1. `git add readme.md `
-1. `git commit -m "init repo with readme.md"`
-1. `npm init`
-1. `mkdir models views controllers`
-1. `touch ./server.js`
+## Technologies/Libraries Used
+
+  * JavaScript
+  * Node.js
+  * Express.js
+  * React.js
+  * MongoDB.js
+  * Mongoose
+  * Axios
+  * HTML5
+  * CSS
+
+## Version 2.0 and Future Development
+
+  * Complete form styling in Material-UI
+  * Incorporate 3rd party API for image file upload when creating posts (upload images/posts via mobile)
+  * "Add comment" input field within post comments list
+  * Usernames & login/authentication to provide custom user experience
+  * Additional styling updates, images and animations

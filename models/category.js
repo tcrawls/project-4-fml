@@ -6,7 +6,7 @@ const CategorySchema = new mongoose.Schema({
 
 const CategoryCollection = mongoose.model('Category', CategorySchema)
 
-// CATEGORY MODEL FUNCTIONS:
+// CATEGORY/ALBUM MODEL FUNCTIONS:
 
 function getAllCategories() {
   return CategoryCollection.find()

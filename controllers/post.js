@@ -2,9 +2,7 @@ const express = require('express')
 const postApi = require('../models/post.js')
 const postRouter = express.Router()
 
-
 // POST REQUEST HANDLERS:
-
 
 postRouter.get('/byCategoryId/:categoryId', (req, res) => {
     postApi.getPostsByCategoryId(req.params.categoryId)
@@ -47,7 +45,6 @@ postRouter.delete('/:postId', (req, res) => {
             res.json(post)
         })
 })
-
 
 
 module.exports = {

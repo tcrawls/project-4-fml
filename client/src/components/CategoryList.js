@@ -8,7 +8,6 @@ import ListItemText from '@material-ui/core/ListItemText';
 export default class CategoryList extends Component {
     render() {
         const itemStyle = {
-            // width: '100%',
             textAlign: 'center',
             margin: '0 auto',
             width: '250px',
@@ -16,8 +15,6 @@ export default class CategoryList extends Component {
         }
         const item = {
             textAlign: 'center',
-            borderRadius: "3px",
-            border: "1px solid #e6e6e6"
         }
 
         let categoryList = this.props.categories.map((category) => {
@@ -39,29 +36,3 @@ export default class CategoryList extends Component {
         )
     }
 }
-
-
-
-//     convertToStrings() {
-//         var categoryStrings = this.props.categories.map((category) => {
-//             return category.name
-//         })
-//         var sortedCategoryList = categoryStrings.sort()
-//         return sortedCategoryList
-//     }
-
-//     render() {
-//         let displayedCategoryList = sortedCategoryList.map((category) => {
-//             return (
-//                 <Link key={category._id} to={`/category/${category._id}`}>{category.name}</Link>
-
-//             )
-//         })
-//         this.convertToStrings
-//         return (
-//             <div>
-//                 {sortedCategoryList}
-//             </div>
-//         )
-//     }
-// }
