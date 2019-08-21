@@ -3,6 +3,8 @@ import axios from 'axios'
 import { Redirect, Link } from 'react-router-dom'
 import Button from '@material-ui/core/Button';
 import Icon from '@material-ui/core/Icon';
+import TextField from '@material-ui/core/TextField';
+
 
 export default class CreatePostForm extends Component {
 
@@ -39,6 +41,13 @@ export default class CreatePostForm extends Component {
             marginTop: "7px",
             marginLeft: "15px"
         }
+        const formStyle = {
+            marginLeft: "15px"
+        }
+        const inputStyle = {
+            margin: "10px"
+        }
+
         if (this.state.redirectToCategoryPage) {
             return <Redirect to={`/category/${this.props.match.params.categoryId}`} />
         }
@@ -48,23 +57,30 @@ export default class CreatePostForm extends Component {
                     <Icon>arrow_back</Icon>
                     Back to Homepage
             </Button>
-                <h2>New Post</h2>
-                <form onSubmit={this.handleSubmit}>
-                    <div>
+                <h2 style={formStyle}>New Post</h2>
+                <form onSubmit={this.handleSubmit} style={formStyle}>
+                    {/* <TextField
+                        id="createdBy"
+                        label="Posted By:"
+                        value={this.state.post.createdBy}
+                        onChange={this.handleInputChange}
+                        margin="normal"
+                    /> */}
+                    <div style={inputStyle}>
                         <label htmlFor="createdBy">Posted By: </label>
                         <input type="text" id="createdBy" name="createdBy" onChange={this.handleInputChange} value={this.state.post.createdBy} />
                     </div>
-                    <div>
+                    <div style={inputStyle}>
                         <label htmlFor="dateCreated">Date Posted: </label>
                         <input type="text" id="dateCreated" name="dateCreated" onChange={this.handleInputChange} value={this.state.post.dateCreated} />
                     </div>
-                    <div>
+                    <div style={inputStyle}>
                         <label htmlFor="image">Image: </label>
                         <input type="text" id="image" name="image" onChange={this.handleInputChange} value={this.state.post.image} />
                     </div>
-                    <div>
+                    <div style={inputStyle}>
                         <label htmlFor="caption">Caption: </label>
-                        <textarea type="text" id="caption" name="caption" onChange={this.handleInputChange} value={this.state.post.caption} />
+                        <textarea rows="4" cols="50" type="text" id="caption" name="caption" onChange={this.handleInputChange} value={this.state.post.caption} />
                     </div>
                     <input type="submit" value="Create Post" />
                 </form>

@@ -32,24 +32,30 @@ export default class CreateCommentForm extends Component {
     }
 
     render() {
+        const formStyle = {
+            marginLeft: "15px"
+        }
+        const inputStyle = {
+            margin: "10px"
+        }
         if (this.state.redirectToPostPage) {
             return <Redirect to={`/post/${this.props.match.params.postId}`} />
         }
         return (
             <div>
-                <h2>Create Comment</h2>
-                <form onSubmit={this.handleSubmit}>
-                    <div>
+                <h2 style={formStyle}>Create Comment</h2>
+                <form style={formStyle} onSubmit={this.handleSubmit}>
+                    <div style={inputStyle}>
                         <label htmlFor="createdBy">Submitted By: </label>
                         <input type="text" id="createdBy" name="createdBy" onChange={this.handleInputChange} value={this.state.comment.createdBy} />
                     </div>
-                    <div>
+                    <div style={inputStyle}>
                         <label htmlFor="dateCreated">Date Submitted: </label>
                         <input type="text" id="dateCreated" name="dateCreated" onChange={this.handleInputChange} value={this.state.comment.dateCreated} />
                     </div>
-                    <div>
+                    <div style={inputStyle}>
                         <label htmlFor="description">Comment: </label>
-                        <input type="text" id="description" name="description" onChange={this.handleInputChange} value={this.state.comment.description} />
+                        <textarea rows="4" cols="50" type="text" id="description" name="description" onChange={this.handleInputChange} value={this.state.comment.description} />
                     </div>
                     <input type="submit" value="Submit Comment" />
                 </form>

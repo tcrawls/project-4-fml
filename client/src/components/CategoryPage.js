@@ -62,6 +62,7 @@ export default class CategoryPage extends Component {
                         dateCreated={post.dateCreated}
                         image={post.image}
                         categoryId={post.categoryId}
+                        categoryName={this.state.category.name}
                     />
                 </div>
             )
