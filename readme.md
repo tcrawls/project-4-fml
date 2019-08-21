@@ -27,8 +27,8 @@ https://drive.google.com/file/d/19zBPUy40l_ILMestFobnLpewfUB_9Yqw/view?usp=shari
   * Express.js
   * React.js
   * MongoDB.js
-  * Mongoose
   * Axios
+  * Material-UI
   * HTML5
   * CSS
 
