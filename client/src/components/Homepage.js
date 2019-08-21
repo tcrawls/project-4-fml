@@ -33,18 +33,17 @@ export default class Homepage extends Component {
             // width: '100%',
             textAlign: 'center',
             margin: '0 auto',
+            paddingTop: '20px',
             width: '360',
-            backgroundColor: 'theme.palette.background.paper'
+            backgroundColor: '#e8eaf6'
         }
-        
         const heroContent = {
-            backgroundColor: "theme.palette.background.paper",
+            backgroundColor: "#fafafa",
             padding: "50px",
         }
         const heroButtons = {
             marginTop: "20px",
         }
-
         const heroButtonIndividual = {
             width: "175px"
         }
@@ -53,6 +52,9 @@ export default class Homepage extends Component {
             return (
                 <div>
                     <CreateCategoryForm />
+                    {/* <CategoryList
+                        categories={this.state.categories}
+                    /> */}
                 </div>
             )
         }
@@ -72,12 +74,20 @@ export default class Homepage extends Component {
                         <div style={heroButtons}>
                             <Grid container spacing={2} justify="center">
                                 <Grid item>
-                                    <Button style={heroButtonIndividual} variant="contained" color="primary">
+                                    <Button component={Link} 
+                                        // to={`/category/select`} 
+                                        to={{
+                                            pathname: '/category/select',
+                                            state: {
+                                              categories: this.state.categories
+                                            }
+                                        }}
+                                        style={heroButtonIndividual} variant="contained" color="primary">
                                         Post a Photo
                                     </Button>
                                 </Grid>
                                 <Grid item>
-                                    <Button style={heroButtonIndividual} variant="outlined" color="primary">
+                                    <Button onClick={this.handleClick} style={heroButtonIndividual} variant="outlined" color="primary">
                                         Create an Album
                                     </Button>
                                 </Grid>
@@ -87,9 +97,9 @@ export default class Homepage extends Component {
                 </div>
 
                 <div style={listStyle}>
-                    <h3>Browse by Category:</h3>
-                    <button onClick={this.handleClick}>+</button>
-                    {/* <h2><a href="#" onClick={handleClick}>+</a></h2> */}
+                    <Typography variant="h5" align="center" color="textPrimary" gutterBottom>
+                        Browse Albums:
+                    </Typography>
                     <CategoryList
                         categories={this.state.categories}
                     />

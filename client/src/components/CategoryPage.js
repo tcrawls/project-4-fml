@@ -1,8 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import { Link, Redirect } from 'react-router-dom'
-// import SinglePost from './SinglePost.js'
-import SinglePost3 from './SinglePost3.js'
+import SinglePost from './SinglePost.js'
 import Typography from '@material-ui/core/Typography';
 import Fab from '@material-ui/core/Fab'
 import IconButton from '@material-ui/core/IconButton';
@@ -55,7 +54,7 @@ export default class CategoryPage extends Component {
         let postList = this.state.posts.map((post) => {
             return (
                 <div>
-                    <SinglePost3
+                    <SinglePost
                         key={post._id}
                         postId={post._id}
                         createdBy={post.createdBy}

@@ -18,7 +18,7 @@ import Avatar from '@material-ui/core/Avatar';
 import Typography from '@material-ui/core/Typography';
 
 
-export default class SinglePost3 extends Component {
+export default class SinglePost extends Component {
 
     state = {
         comments: [],

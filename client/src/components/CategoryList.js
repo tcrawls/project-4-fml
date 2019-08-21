@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { Link } from 'react-router-dom'
 import List from '@material-ui/core/List';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemText from '@material-ui/core/ListItemText';
@@ -8,29 +7,29 @@ import ListItemText from '@material-ui/core/ListItemText';
 
 export default class CategoryList extends Component {
     render() {
-
         const itemStyle = {
             // width: '100%',
             textAlign: 'center',
             margin: '0 auto',
-            width: '340px',
-            backgroundColor: 'theme.palette.background.paper',
-          }
-
-          const listStyle = {
-              width: '500px'
-          }
+            width: '250px',
+            backgroundColor: '#e8eaf6',
+        }
+        const item = {
+            textAlign: 'center',
+            borderRadius: "3px",
+            border: "1px solid #e6e6e6"
+        }
 
         let categoryList = this.props.categories.map((category) => {
             return (
                 <div>
-                    <List aria-label="secondary mailbox folders">
-                        <ListItem style={itemStyle} button component="a" href={`/category/${category._id}`}>
+                    <List style={itemStyle}>
+                        <ListItem style={item} button component="a" href={`/category/${category._id}`}>
                             <ListItemText primary={category.name} />
                         </ListItem>
                     </List>
                 </div>
-                )
+            )
         })
         let displayedCategoryList = categoryList.reverse()
         return (
