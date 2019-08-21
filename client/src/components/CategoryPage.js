@@ -7,6 +7,8 @@ import Typography from '@material-ui/core/Typography';
 import Fab from '@material-ui/core/Fab'
 import IconButton from '@material-ui/core/IconButton';
 import DeleteIcon from '@material-ui/icons/Delete';
+import Button from '@material-ui/core/Button';
+import Icon from '@material-ui/core/Icon';
 
 export default class CategoryPage extends Component {
 
@@ -38,10 +40,13 @@ export default class CategoryPage extends Component {
         const postContainer = {
             marginBottom: "50px"
         }
-
         const header = {
             marginTop: "20px",
             textAlign: "center"
+        }
+        const backButton = {
+            marginTop: "7px",
+            marginLeft: "15px"
         }
 
         if (this.state.redirectToHome) {
@@ -65,6 +70,10 @@ export default class CategoryPage extends Component {
         let displayedPostList = postList.reverse()
         return (
             <div>
+                <Button style={backButton} component={Link} to={`/`} color="primary" aria-label="back" >
+                    <Icon>arrow_back</Icon>
+                    Back to Homepage
+                </Button>
                 <div style={header}>
                     <Typography component="h1" variant="h2" align="center" color="textPrimary" gutterBottom>
                         {this.state.category.name}
@@ -72,7 +81,7 @@ export default class CategoryPage extends Component {
                             <DeleteIcon />
                         </IconButton>
                     </Typography>
-                    
+
                     <Fab variant="contained" color="primary" align="center" component={Link} to={`/post/${this.props.match.params.categoryId}/new`}>
                         Create New Post
                     </Fab>

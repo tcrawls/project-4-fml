@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
 import Navbar from './components/Navbar';
 import Homepage from './components/Homepage.js'
 import CategoryPage from './components/CategoryPage.js'
-import PostPage from './components/DRAFT3-PostPage.js'
+import PostPage from './components/PostPage-SinglePost.js'
 import CreatePostForm from './components/CreatePostForm.js'
 import EditPostForm from './components/EditPostForm.js'
 import CreateCommentForm from './components/CreateCommentForm.js'

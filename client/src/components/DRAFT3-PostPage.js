@@ -23,8 +23,8 @@ export default class PostPage extends Component {
                 axios.get(`/api/comment/byPostId/${this.props.match.params.postId}`)
                     .then((response) => {
                         this.setState({ comments: response.data })
-                    })
             })
+        })
     }
 
     handleDeletePost = (event) => {
@@ -64,18 +64,16 @@ export default class PostPage extends Component {
             padding: "16px",
             width: "300px"
         }
-        const postImage = {
+        const postPhoto = {
             maxWidth: "600px",
             margin: "0 auto"
         }
         const postTextContent = {
             padding: "5px 16px"
         }
-
         const commentButton = {
             // padding: "10px"
         }
-
         const commentIcon = {
             padding: "5px"
         }
@@ -99,15 +97,15 @@ export default class PostPage extends Component {
         return (
             <div>
                 <div>
-                    <Link to={`/category/${this.state.post.categoryId}`}>Back to Category Page</Link>
+                    <Link to={`/category/${this.props.categoryId}`}>Back to Category Page</Link>
                 </div>
                 <div style={postContainer}>
                     <div style={postTop}>
                         <div style={postSubmitter}>
-                            <b>{this.state.post.createdBy}</b>:
+                            <b>{this.props.createdBy}</b>:
                         </div>
                         <div style={postButtons}>
-                            <IconButton component={Link} to={`/post/${this.state.post.categoryId}/edit/${this.props.match.params.postId}`} color="disable-primary" aria-label="edit post">
+                            <IconButton component={Link} to={`/post/${this.props.categoryId}/edit/${this.props.match.params.postId}`} color="disable-primary" aria-label="edit post">
                                 <Icon>edit</Icon>                    
                             </IconButton>
                             <IconButton onClick={this.handleDeletePost} aria-label="delete">
@@ -116,10 +114,10 @@ export default class PostPage extends Component {
                         </div>
                     </div>
                     <div>
-                        <img style={postImage} src={this.state.post.image} alt="Post Image" />
+                        <img style={postPhoto} src={this.props.postImage} alt="Post Image" />
                     </div>
                     <div style={postTextContent}>
-                        <p>{this.state.post.caption}</p>
+                        <p>{this.props.caption}</p>
                         {/* <p>Comments:</p> */}
                         {/* <Link to={`/comment/${this.props.match.params.postId}/new`}>Add Comment</Link> */}
                         <IconButton style={commentButton} component={Link} to={`/comment/${this.props.match.params.postId}/new`} color="primary" size="small" variant="contained" aria-label="add comment">
