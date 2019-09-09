@@ -10,7 +10,7 @@ export default class SingleComment extends Component {
     state = {
         wasDeleted: false
     }
-
+    
     handleDeletePost = (event) => {
         event.preventDefault()
         axios.delete(`/api/comment/${this.props.id}`)
@@ -25,9 +25,6 @@ export default class SingleComment extends Component {
         }
         const commentContainer = {
             backgroundColor: "#fff"
-            // borderRadius: "3px",
-            // margin: "5px auto",
-            // border: "1px solid #e6e6e6"
         }
         const commentContent = {
             display: "flex",
