@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 import CreateCategoryForm from './CreateCategoryForm.js'
-import CategoryList from './CategoryList.js'
+// import CategoryList from './CategoryList.js'
+import CategoryGrid from './CategoryGrid.js'
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
@@ -30,7 +31,7 @@ export default class Homepage extends Component {
         const listStyle = {
             textAlign: 'center',
             margin: '0 auto',
-            paddingTop: '20px',
+            // paddingTop: '20px',
             width: '360',
             backgroundColor: '#e8eaf6'
         }
@@ -86,9 +87,9 @@ export default class Homepage extends Component {
                 </div>
                 <div style={listStyle}>
                     <Typography variant="h5" align="center" color="textPrimary" gutterBottom>
-                        Browse Albums:
+                        {/* Browse Albums: */}
                     </Typography>
-                    <CategoryList
+                    <CategoryGrid
                         categories={this.state.categories}
                     />
                 </div>

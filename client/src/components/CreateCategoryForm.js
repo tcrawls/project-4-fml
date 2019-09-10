@@ -1,17 +1,15 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import { Link } from 'react-router-dom'
-import Homepage from './Homepage.js'
+import { Link, Redirect } from 'react-router-dom'
 import Button from '@material-ui/core/Button';
 import Icon from '@material-ui/core/Icon';
 
 export default class CreateCategoryForm extends Component {
-    
     state = {
         category: {},
-        redirectToHome: false
+        redirectToCreatePost: false
     }
-
+    
     handleInputChange = (event) => {
         const copiedCategory = { ...this.state.category }
         copiedCategory[event.target.name] = event.target.value
@@ -20,9 +18,10 @@ export default class CreateCategoryForm extends Component {
     handleSubmit = (event) => {
         event.preventDefault()
         axios.post('/api/category', this.state.category)
-            .then(() => {
+            .then((res) => {
                 this.setState({
-                    redirectToHome: true
+                    category: res.data,
+                    redirectToCreatePost: true
                 })
             })
     }
@@ -32,8 +31,8 @@ export default class CreateCategoryForm extends Component {
             marginTop: "7px",
             marginLeft: "15px"
         }
-        if (this.state.redirectToHome) {
-            return <Homepage />
+        if (this.state.redirectToCreatePost) {
+            return <Redirect to={`/post/${this.state.category._id}/new`} />
         }
         return (
             <div>
