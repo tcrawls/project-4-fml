@@ -51,7 +51,7 @@ export default class CategoryGrid extends Component {
                                     <Button component="a" href={`/category/${category._id}`} size="small" color="primary">
                                         View
                                     </Button>
-                                    <Button size="small" color="primary">
+                                    <Button component="a" href={`/category/${category._id}/edit`} size="small" color="primary">
                                         Edit
                                     </Button>
                                 </CardActions>

@@ -6,12 +6,18 @@ import Icon from '@material-ui/core/Icon';
 import Homepage from './Homepage.js'
 
 
-export default class CreateCategoryForm extends Component {
+export default class EditCategoryForm extends Component {
     state = {
         category: {},
         redirectToHomepage: false
     }
     
+    componentDidMount() {
+        axios.get(`/api/category/${this.props.match.params.categoryId}`)
+            .then((res) => {
+                this.setState({ category: res.data })
+            })
+    }
     handleInputChange = (event) => {
         const copiedCategory = { ...this.state.category }
         copiedCategory[event.target.name] = event.target.value
@@ -19,7 +25,7 @@ export default class CreateCategoryForm extends Component {
     }
     handleSubmit = (event) => {
         event.preventDefault()
-        axios.post('/api/category', this.state.category)
+        axios.put(`/api/category/${this.props.match.params.categoryId}`, this.state.category)
             .then((res) => {
                 this.setState({
                     category: res.data,
@@ -43,7 +49,7 @@ export default class CreateCategoryForm extends Component {
                     <Icon>arrow_back</Icon>
                     Back to Homepage
                 </Button>
-                <h2>New Album</h2>
+                <h2>Edit Album</h2>
                 <form onSubmit={this.handleSubmit}>
                     <div>
                         <label htmlFor="name">Album Name: </label>
@@ -53,10 +59,9 @@ export default class CreateCategoryForm extends Component {
                         <label htmlFor="previewImage">Preview Image: </label>
                         <input type="text" id="previewImage" name="previewImage" onChange={this.handleInputChange} value={this.state.category.image} />
                     </div>
-                    <input type="submit" value="Create Album" />
+                    <input type="submit" value="Update Album" />
                 </form>
             </div>
         )
     }
 }
-

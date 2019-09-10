@@ -25,9 +25,14 @@ function deleteCategory(categoryId) {
   return CategoryCollection.findByIdAndDelete(categoryId)
 }
 
+function updateCategory(categoryId, updatedCategory) {
+  return CategoryCollection.findByIdAndUpdate(categoryId, updatedCategory, { new: true })
+}
+
 module.exports = {
   getAllCategories,
   getCategory,
   addNewCategory,
-  deleteCategory
+  deleteCategory,
+  updateCategory
 }

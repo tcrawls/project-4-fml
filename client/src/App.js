@@ -10,6 +10,7 @@ import CreateCommentForm from './components/CreateCommentForm.js'
 import EditCommentForm from './components/EditCommentForm.js'
 import SelectCategoryList from './components/SelectCategoryList.js'
 import CreateCategoryForm from './components/CreateCategoryForm.js'
+import EditCategoryForm from './components/EditCategoryForm.js'
 import Footer from './components/Footer.js'
 import './App.css';
 
@@ -23,6 +24,7 @@ function App() {
           <Route exact path="/category/new" component={CreateCategoryForm} />
           <Route exact path="/category/select" component={SelectCategoryList} />
           <Route exact path="/category/:categoryId" component={CategoryPage} />
+          <Route exact path="/category/:categoryId/edit" component={EditCategoryForm} />
           <Route exact path="/post/:categoryId/new" component={CreatePostForm} />
           <Route exact path="/post/:categoryId/edit/:postId" component={EditPostForm} />
           <Route exact path="/post/:postId" component={PostPage} />

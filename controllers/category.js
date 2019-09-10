@@ -33,6 +33,13 @@ categoryRouter.delete('/:categoryId', (req, res) => {
         })
 })
 
+categoryRouter.put('/:categoryId', (req, res) => {
+    categoryApi.updateCategory(req.params.categoryId, req.body)
+        .then((category) => {
+            res.json(category)
+        })
+})
+
 module.exports = {
     categoryRouter
 }
