@@ -36,7 +36,7 @@ export default class CategoryGrid extends Component {
                             <Card style={cardBody}>
                                 <CardMedia
                                     style={cardMedia}
-                                    image="https://source.unsplash.com/random"
+                                    image={`${category.previewImage}`}
                                     title="Image title"
                                 />
                                 <CardContent style={cardContent}>
@@ -44,11 +44,11 @@ export default class CategoryGrid extends Component {
                                         {category.name}
                                     </Typography>
                                     <Typography>
-                                        This is a media card. You can use this section to describe the content.
+                                        {/* This is a media card. You can use this section to describe the content. */}
                                     </Typography>
                                 </CardContent>
                                 <CardActions>
-                                    <Button size="small" color="primary">
+                                    <Button component="a" href={`/category/${category._id}`} size="small" color="primary">
                                         View
                                     </Button>
                                     <Button size="small" color="primary">

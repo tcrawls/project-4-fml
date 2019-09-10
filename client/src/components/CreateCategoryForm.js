@@ -3,6 +3,8 @@ import axios from 'axios'
 import { Link, Redirect } from 'react-router-dom'
 import Button from '@material-ui/core/Button';
 import Icon from '@material-ui/core/Icon';
+import Homepage from './Homepage.js'
+
 
 export default class CreateCategoryForm extends Component {
     state = {
@@ -32,7 +34,9 @@ export default class CreateCategoryForm extends Component {
             marginLeft: "15px"
         }
         if (this.state.redirectToCreatePost) {
-            return <Redirect to={`/post/${this.state.category._id}/new`} />
+            // return <Redirect to='/' />
+            // return <Redirect to={`/post/${this.state.category._id}/new`} />
+            return <Homepage />
         }
         return (
             <div>
@@ -45,6 +49,10 @@ export default class CreateCategoryForm extends Component {
                     <div>
                         <label htmlFor="name">Album Name: </label>
                         <input type="text" id="name" name="name" onChange={this.handleInputChange} value={this.state.category.name} />
+                    </div>
+                    <div>
+                        <label htmlFor="previewImage">Preview Image: </label>
+                        <input type="text" id="previewImage" name="previewImage" onChange={this.handleInputChange} value={this.state.category.image} />
                     </div>
                     <input type="submit" value="Create Album" />
                 </form>

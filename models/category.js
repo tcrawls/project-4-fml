@@ -1,7 +1,8 @@
 const mongoose = require('./connection.js')
 
 const CategorySchema = new mongoose.Schema({
-  name: String
+  name: String,
+  previewImage: String
 })
 
 const CategoryCollection = mongoose.model('Category', CategorySchema)
