@@ -8,9 +8,10 @@ import IconButton from '@material-ui/core/IconButton';
 import DeleteIcon from '@material-ui/icons/Delete';
 import Button from '@material-ui/core/Button';
 import Icon from '@material-ui/core/Icon';
+import PostList from './PostList.js'
 
 export default class CategoryPage extends Component {
-    
+
     state = {
         category: {},
         posts: [],
@@ -36,9 +37,6 @@ export default class CategoryPage extends Component {
     }
 
     render() {
-        const postContainer = {
-            marginBottom: "50px"
-        }
         const header = {
             marginTop: "20px",
             textAlign: "center"
@@ -50,23 +48,6 @@ export default class CategoryPage extends Component {
         if (this.state.redirectToHome) {
             return <Redirect to="/" />
         }
-        let postList = this.state.posts.map((post) => {
-            return (
-                <div>
-                    <SinglePost
-                        key={post._id}
-                        postId={post._id}
-                        createdBy={post.createdBy}
-                        caption={post.caption}
-                        dateCreated={post.dateCreated}
-                        image={post.image}
-                        categoryId={post.categoryId}
-                        categoryName={this.state.category.name}
-                    />
-                </div>
-            )
-        })
-        let displayedPostList = postList.reverse()
         return (
             <div>
                 <Button style={backButton} component={Link} to={`/`} color="primary" aria-label="back" >
@@ -85,11 +66,10 @@ export default class CategoryPage extends Component {
                         Create New Post
                     </Fab>
                 </div>
-                {/* <button onClick={this.handleDeleteCategory}>Delete Category</button>
-                <div>
-                    <Link to={`/post/${this.props.match.params.categoryId}/new`}>Create New Post</Link>
-                </div> */}
-                <div style={postContainer}>{displayedPostList}</div>
+                <PostList
+                    category={this.state.category}
+                    posts={this.state.posts}
+                />
             </div>
         )
     }

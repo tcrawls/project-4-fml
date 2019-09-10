@@ -36,7 +36,6 @@ export default class SinglePost extends Component {
 
     render() {
         const postContainer = {
-            // height: "300px",
             backgroundColor: "#fff",
             borderRadius: "3px",
             width: "95vw",
@@ -45,43 +44,11 @@ export default class SinglePost extends Component {
             marginBottom: "10px",
             border: "1px solid #e6e6e6"
         }
-        const postTop = {
-            display: "flex",
-            justifyContent: "flex-start",
-            alignItems: "center",
-        }
-        const postSubmitter = {
-            display: "flex",
-            justifyContent: "flex-start",
-            alignItems: "center",
-            padding: "16px",
-            width: "300px"
-        }
-        const postButtons = {
-            display: "flex",
-            justifyContent: "flex-end",
-            alignItems: "center",
-            padding: "16px",
-            width: "300px"
-        }
-        const postImage = {
-            width: "600px",
-            height: "300px",
-            margin: "0 auto"
-        }
-        const postTextContent = {
-            padding: "5px 16px"
-        }
         const media = {
             maxHeight: "300px",
             paddingTop: "56.25%",
             width: "600px",
         }
-
-        const commentButton = {
-            textAlign: "center",
-        }
-
         if (this.state.wasDeleted) {
             return <Redirect to={`/category/${this.props.categoryId}`} />
         }
@@ -115,17 +82,15 @@ export default class SinglePost extends Component {
                     />
                     <CardMedia
                         component={Link}
-                        to={`/post/${this.props.postId}`}
+                        to={{
+                            pathname: `/post/${this.props.postId}`,
+                            state: {
+                                categoryName: this.props.categoryname
+                            }
+                        }}
                         style={media}
                         image={this.props.image}
                         title="Post Image"
-                        comments={this.state.comments}
-                        postId={this.props.postId}
-                        createdBy={this.props.createdBy}
-                        caption={this.props.caption}
-                        dateCreated={this.props.dateCreated}
-                        postImage={this.props.image}
-                        categoryId={this.props.categoryId}
                     />
                     <CardContent>
                         <Typography variant="body2" color="textPrimary" component="p">
@@ -137,8 +102,20 @@ export default class SinglePost extends Component {
                             Add Comment
                             <Icon>add_comment</Icon>
                         </Button>
+                        <Button
+                            component={Link}
+                            to={{
+                                pathname: `/post/${this.props.postId}`,
+                                state: {
+                                    categoryName: this.props.categoryName
+                                }
+                            }}
+                            variant="contained"
+                            color="primary"
+                        >
+                            View Post Page
+                        </Button>
                     </CardActions>
-
                     <CardContent>
                         <Typography>
                             {commentList}

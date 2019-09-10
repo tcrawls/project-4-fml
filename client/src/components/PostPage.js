@@ -43,7 +43,6 @@ export default class PostPage extends Component {
 
     render() {
         const postContainer = {
-            // height: "300px",
             backgroundColor: "#fff",
             borderRadius: "3px",
             width: "95vw",
@@ -52,40 +51,6 @@ export default class PostPage extends Component {
             marginBottom: "10px",
             border: "1px solid #e6e6e6"
         }
-        const postTop = {
-            display: "flex",
-            justifyContent: "flex-start",
-            alignItems: "center",
-        }
-        const postSubmitter = {
-            display: "flex",
-            justifyContent: "flex-start",
-            alignItems: "center",
-            padding: "16px",
-            width: "300px"
-        }
-        const postButtons = {
-            display: "flex",
-            justifyContent: "flex-end",
-            alignItems: "center",
-            padding: "16px",
-            width: "300px"
-        }
-        const postImage = {
-            width: "600px",
-            height: "300px",
-            margin: "0 auto"
-        }
-        const postTextContent = {
-            padding: "5px 16px"
-        }
-        // const commentButton = {
-        //     // padding: "10px"
-        // }
-
-        // const commentIcon = {
-        //     padding: "5px"
-        // }
         const media = {
             maxHeight: "300px",
             paddingTop: "56.25%",
@@ -95,7 +60,6 @@ export default class PostPage extends Component {
             marginTop: "7px",
             marginLeft: "15px"
         }
-
         if (this.state.wasDeleted) {
             return <Redirect to={`/category/${this.state.categoryId}`} />
         }
@@ -113,7 +77,6 @@ export default class PostPage extends Component {
         })
         return (
             <div>
-                {/* <Link to={`/category/${this.state.post.categoryId}`} /> */}
                 <Button style={backButton} component={Link} to={`/category/${this.state.post.categoryId}`} color="primary" aria-label="back" >
                     <Icon>arrow_back</Icon>
                     Back to album
