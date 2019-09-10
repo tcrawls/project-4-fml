@@ -11,8 +11,6 @@ import EditCommentForm from './components/EditCommentForm.js'
 import SelectCategoryList from './components/SelectCategoryList.js'
 import CreateCategoryForm from './components/CreateCategoryForm.js'
 import Footer from './components/Footer.js'
-import Typography from '@material-ui/core/Typography';
-import Link from '@material-ui/core/Link';
 import './App.css';
 
 function App() {

@@ -27,7 +27,7 @@ export default class CategoryList extends Component {
         })
         let displayedCategoryList = categoryList.reverse()
         return (
-            <div className={listStyle}>
+            <div>
                 {displayedCategoryList}
             </div>
         )
