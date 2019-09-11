@@ -4,7 +4,8 @@ import SinglePost from './SinglePost.js'
 export default class PostList extends Component {
     render() {
         const postContainer = {
-            marginBottom: "50px"
+            marginBottom: "50px",
+            backgroundColor: "#e8eaf6"
         }
         let postList = this.props.posts.map((post) => {
             return (
