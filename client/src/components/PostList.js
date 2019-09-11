@@ -5,7 +5,7 @@ export default class PostList extends Component {
     render() {
         const postContainer = {
             marginBottom: "50px",
-            backgroundColor: "#e8eaf6"
+            backgroundColor: "#fafafa"
         }
         let postList = this.props.posts.map((post) => {
             return (

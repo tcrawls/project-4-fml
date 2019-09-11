@@ -38,7 +38,7 @@ export default class CategoryPage extends Component {
 
     render() {
         const header = {
-            marginTop: "20px",
+            marginTop: "5px",
             textAlign: "center"
         }
         const backButton = {

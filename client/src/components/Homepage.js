@@ -29,7 +29,7 @@ export default class Homepage extends Component {
 
     render() {
         const listStyle = {
-            textAlign: 'center',
+            // textAlign: 'center',
             margin: '0 auto',
             // paddingTop: '20px',
             width: '360',

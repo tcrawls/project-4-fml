@@ -40,8 +40,7 @@ export default class SinglePost extends Component {
             borderRadius: "3px",
             width: "95vw",
             maxWidth: "600px",
-            margin: "20px auto",
-            marginBottom: "30px",
+            margin: "30px auto",
             border: "1px solid #e6e6e6"
         }
         const media = {
