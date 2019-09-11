@@ -46,7 +46,7 @@ export default class CategoryGrid extends Component {
                                     title="Image title"
                                 />
                                 <CardContent style={cardContent}>
-                                    <Typography gutterBottom variant="h5" component="h2" color="textPrimary">
+                                    <Typography gutterBottom variant="h6" component="h2" color="textPrimary">
                                         {category.name}
                                     </Typography>
                                     {/* <Typography>
