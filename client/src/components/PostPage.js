@@ -14,14 +14,12 @@ import CardActions from '@material-ui/core/CardActions';
 import Typography from '@material-ui/core/Typography';
 
 export default class PostPage extends Component {
-
     state = {
         post: {},
         comments: [],
         categoryId: '',
         wasDeleted: false
     }
-
     componentDidMount() {
         axios.get(`/api/post/${this.props.match.params.postId}`)
             .then((res) => {
@@ -40,7 +38,6 @@ export default class PostPage extends Component {
                 this.setState({ wasDeleted: true })
             })
     }
-
     render() {
         const postContainer = {
             backgroundColor: "#fff",

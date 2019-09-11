@@ -5,7 +5,6 @@ import Button from '@material-ui/core/Button';
 import Icon from '@material-ui/core/Icon';
 
 export default class CreatePostForm extends Component {
-
     state = {
         categories: [],
         post: {
@@ -17,7 +16,6 @@ export default class CreatePostForm extends Component {
         },
         redirectToCategoryPage: false
     }
-
     handleInputChange = (event) => {
         const copiedPost = { ...this.state.post }
         copiedPost[event.target.name] = event.target.value
@@ -33,7 +31,6 @@ export default class CreatePostForm extends Component {
                 })
             })
     }
-
     render() {
         const backButton = {
             marginTop: "7px",
@@ -43,7 +40,10 @@ export default class CreatePostForm extends Component {
             marginLeft: "15px"
         }
         const inputStyle = {
-            margin: "10px"
+            margin: "15px"
+        }
+        const buttonStyle = {
+            marginLeft: "15px"
         }
         if (this.state.redirectToCategoryPage) {
             return <Redirect to={`/category/${this.props.match.params.categoryId}`} />
@@ -65,14 +65,14 @@ export default class CreatePostForm extends Component {
                         <input type="text" id="dateCreated" name="dateCreated" onChange={this.handleInputChange} value={this.state.post.dateCreated} />
                     </div>
                     <div style={inputStyle}>
-                        <label htmlFor="image">Image: </label>
+                        <label htmlFor="image">Image URL: </label>
                         <input type="text" id="image" name="image" onChange={this.handleInputChange} value={this.state.post.image} />
                     </div>
                     <div style={inputStyle}>
                         <label htmlFor="caption">Caption: </label>
                         <textarea rows="4" cols="50" type="text" id="caption" name="caption" onChange={this.handleInputChange} value={this.state.post.caption} />
                     </div>
-                    <input type="submit" value="Create Post" />
+                    <input style={buttonStyle} type="submit" value="Create Post" />
                 </form>
             </div>
         )

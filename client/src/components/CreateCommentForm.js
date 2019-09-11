@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 import axios from 'axios'
-import { Redirect } from 'react-router-dom'
+import { Redirect, Link } from 'react-router-dom'
+import Button from '@material-ui/core/Button';
+import Icon from '@material-ui/core/Icon';
 
 export default class CreateCommentForm extends Component {
-
     state = {
         categories: [],
         comment: {
@@ -14,7 +15,6 @@ export default class CreateCommentForm extends Component {
         },
         redirectToPostPage: false
     }
-
     handleInputChange = (event) => {
         const copiedComment = { ...this.state.comment }
         copiedComment[event.target.name] = event.target.value
@@ -30,8 +30,11 @@ export default class CreateCommentForm extends Component {
                 })
             })
     }
-
     render() {
+        const backButton = {
+            marginTop: "7px",
+            marginLeft: "15px"
+        }
         const formStyle = {
             marginLeft: "15px"
         }
@@ -43,6 +46,10 @@ export default class CreateCommentForm extends Component {
         }
         return (
             <div>
+                <Button style={backButton} component={Link} to={'/'} color="primary" aria-label="back" >
+                    <Icon>arrow_back</Icon>
+                    Back to Homepage
+                </Button>
                 <h2 style={formStyle}>Create Comment</h2>
                 <form style={formStyle} onSubmit={this.handleSubmit}>
                     <div style={inputStyle}>

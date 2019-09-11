@@ -15,7 +15,7 @@ export default class Navbar extends Component {
                     <Toolbar>
                         <CameraIcon />
                         <Button component={Link} to={'/'} variant="h5" color="inherit" noWrap>
-                        <Typography variant="h5" color="inherit" noWrap>
+                            <Typography variant="h5" color="inherit" noWrap>
                                 FamGram
                         </Typography>
                         </Button>

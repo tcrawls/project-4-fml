@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import { Link } from 'react-router-dom'
 import CreateCategoryForm from './CreateCategoryForm.js'
-// import CategoryList from './CategoryList.js'
 import CategoryGrid from './CategoryGrid.js'
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
@@ -10,12 +9,10 @@ import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 
 export default class Homepage extends Component {
-
     state = {
         categories: [],
         formIsDisplayed: false
     }
-
     componentDidMount() {
         axios.get('/api/category')
             .then((res) => {
@@ -26,12 +23,9 @@ export default class Homepage extends Component {
         event.preventDefault()
         this.setState({ formIsDisplayed: !this.state.formIsDisplayed })
     }
-
     render() {
         const listStyle = {
-            // textAlign: 'center',
             margin: '0 auto',
-            // paddingTop: '20px',
             width: '360',
             backgroundColor: '#e8eaf6'
         }
@@ -77,7 +71,10 @@ export default class Homepage extends Component {
                                     </Button>
                                 </Grid>
                                 <Grid item>
-                                    <Button onClick={this.handleClick} style={heroButtonIndividual} variant="outlined" color="primary">
+                                    {/* <Button onClick={this.handleClick} style={heroButtonIndividual} variant="outlined" color="primary">
+                                        Create an Album
+                                    </Button> */}
+                                    <Button component={Link} to={'/category/new'} style={heroButtonIndividual} variant="outlined" color="primary">
                                         Create an Album
                                     </Button>
                                 </Grid>
@@ -86,9 +83,9 @@ export default class Homepage extends Component {
                     </Container>
                 </div>
                 <div style={listStyle}>
-                    <Typography variant="h5" align="center" color="textPrimary" gutterBottom>
-                        {/* Browse Albums: */}
-                    </Typography>
+                    {/* <Typography variant="h5" align="center" color="textPrimary" gutterBottom>
+                        Browse Albums
+                    </Typography> */}
                     <CategoryGrid
                         categories={this.state.categories}
                     />

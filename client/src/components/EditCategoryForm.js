@@ -11,7 +11,6 @@ export default class EditCategoryForm extends Component {
         category: {},
         redirectToHomepage: false
     }
-    
     componentDidMount() {
         axios.get(`/api/category/${this.props.match.params.categoryId}`)
             .then((res) => {
@@ -33,10 +32,18 @@ export default class EditCategoryForm extends Component {
                 })
             })
     }
-
     render() {
         const backButton = {
             marginTop: "7px",
+            marginLeft: "15px"
+        }
+        const formStyle = {
+            marginLeft: "15px"
+        }
+        const inputStyle = {
+            margin: "15px"
+        }
+        const buttonStyle = {
             marginLeft: "15px"
         }
         if (this.state.redirectToHomepage) {
@@ -49,17 +56,17 @@ export default class EditCategoryForm extends Component {
                     <Icon>arrow_back</Icon>
                     Back to Homepage
                 </Button>
-                <h2>Edit Album</h2>
+                <h2 style={formStyle}>Edit Album</h2>
                 <form onSubmit={this.handleSubmit}>
-                    <div>
+                    <div style={inputStyle}>
                         <label htmlFor="name">Album Name: </label>
                         <input type="text" id="name" name="name" onChange={this.handleInputChange} value={this.state.category.name} />
                     </div>
-                    <div>
+                    <div style={inputStyle}>
                         <label htmlFor="previewImage">Preview Image: </label>
-                        <input type="text" id="previewImage" name="previewImage" onChange={this.handleInputChange} value={this.state.category.image} />
+                        <input type="text" id="previewImage" name="previewImage" onChange={this.handleInputChange} value={this.state.category.previewImage} />
                     </div>
-                    <input type="submit" value="Update Album" />
+                    <input style={buttonStyle} type="submit" value="Update Album" />
                 </form>
             </div>
         )

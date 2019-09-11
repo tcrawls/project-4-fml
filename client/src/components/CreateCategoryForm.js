@@ -5,13 +5,11 @@ import Button from '@material-ui/core/Button';
 import Icon from '@material-ui/core/Icon';
 import Homepage from './Homepage.js'
 
-
 export default class CreateCategoryForm extends Component {
     state = {
         category: {},
         redirectToHomepage: false
     }
-    
     handleInputChange = (event) => {
         const copiedCategory = { ...this.state.category }
         copiedCategory[event.target.name] = event.target.value
@@ -27,10 +25,18 @@ export default class CreateCategoryForm extends Component {
                 })
             })
     }
-
     render() {
         const backButton = {
             marginTop: "7px",
+            marginLeft: "15px"
+        }
+        const formStyle = {
+            marginLeft: "15px"
+        }
+        const inputStyle = {
+            margin: "15px"
+        }
+        const buttonStyle = {
             marginLeft: "15px"
         }
         if (this.state.redirectToHomepage) {
@@ -39,21 +45,21 @@ export default class CreateCategoryForm extends Component {
         }
         return (
             <div>
-                <Button style={backButton} component={Link} to={`/`} color="primary" aria-label="back" >
+                <Button style={backButton} component={Link} to={'/'} color="primary" aria-label="back" >
                     <Icon>arrow_back</Icon>
                     Back to Homepage
                 </Button>
-                <h2>New Album</h2>
+                <h2 style={formStyle}>New Album</h2>
                 <form onSubmit={this.handleSubmit}>
-                    <div>
+                    <div style={inputStyle}>
                         <label htmlFor="name">Album Name: </label>
                         <input type="text" id="name" name="name" onChange={this.handleInputChange} value={this.state.category.name} />
                     </div>
-                    <div>
+                    <div style={inputStyle}>
                         <label htmlFor="previewImage">Preview Image: </label>
                         <input type="text" id="previewImage" name="previewImage" onChange={this.handleInputChange} value={this.state.category.image} />
                     </div>
-                    <input type="submit" value="Create Album" />
+                    <input style={buttonStyle} type="submit" value="Create Album" />
                 </form>
             </div>
         )

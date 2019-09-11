@@ -6,11 +6,9 @@ import Icon from '@material-ui/core/Icon';
 import DeleteIcon from '@material-ui/icons/Delete';
 
 export default class SingleComment extends Component {
-
     state = {
         wasDeleted: false
     }
-    
     handleDeletePost = (event) => {
         event.preventDefault()
         axios.delete(`/api/comment/${this.props.id}`)
@@ -18,7 +16,6 @@ export default class SingleComment extends Component {
                 this.setState({ wasDeleted: true })
             })
     }
-
     render() {
         const userName = {
             paddingRight: "7px"

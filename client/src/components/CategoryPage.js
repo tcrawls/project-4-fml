@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import { Link, Redirect } from 'react-router-dom'
-import SinglePost from './SinglePost.js'
 import Typography from '@material-ui/core/Typography';
 import Fab from '@material-ui/core/Fab'
 import IconButton from '@material-ui/core/IconButton';
@@ -11,13 +10,11 @@ import Icon from '@material-ui/core/Icon';
 import PostList from './PostList.js'
 
 export default class CategoryPage extends Component {
-
     state = {
         category: {},
         posts: [],
         redirectToHome: false
     }
-
     componentDidMount() {
         axios.get(`/api/category/${this.props.match.params.categoryId}`)
             .then((res) => {
@@ -35,7 +32,6 @@ export default class CategoryPage extends Component {
                 this.setState({ redirectToHome: true })
             })
     }
-
     render() {
         const header = {
             marginTop: "5px",

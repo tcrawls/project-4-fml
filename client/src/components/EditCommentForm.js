@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 import axios from 'axios';
-import { Redirect } from 'react-router-dom'
+import { Redirect, Link } from 'react-router-dom'
+import Button from '@material-ui/core/Button';
+import Icon from '@material-ui/core/Icon';
 
 export default class EditCommentForm extends Component {
-
     state = {
         comment: {
             createdBy: '',
@@ -13,7 +14,6 @@ export default class EditCommentForm extends Component {
         },
         redirectToPostPage: false
     }
-
     componentDidMount() {
         axios.get(`/api/comment/${this.props.match.params.commentId}`)
             .then((res) => {
@@ -35,13 +35,20 @@ export default class EditCommentForm extends Component {
                 })
             })
     }
-
     render() {
+        const backButton = {
+            marginTop: "7px",
+            marginLeft: "15px"
+        }
         if (this.state.redirectToPostPage) {
             return <Redirect to={`/post/${this.props.match.params.postId}`} />
         }
         return (
             <div>
+                <Button style={backButton} component={Link} to={'/'} color="primary" aria-label="back" >
+                    <Icon>arrow_back</Icon>
+                    Back to Homepage
+                </Button>
                 <h2>Edit Comment</h2>
                 <form onSubmit={this.handleSubmit}>
                     <div>

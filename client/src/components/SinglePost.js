@@ -14,12 +14,10 @@ import CardActions from '@material-ui/core/CardActions';
 import Typography from '@material-ui/core/Typography';
 
 export default class SinglePost extends Component {
-
     state = {
         comments: [],
         wasDeleted: false
     }
-
     componentDidMount() {
         axios.get(`/api/comment/byPostId/${this.props.postId}`)
             .then((response) => {
@@ -33,7 +31,6 @@ export default class SinglePost extends Component {
                 this.setState({ wasDeleted: true })
             })
     }
-
     render() {
         const postContainer = {
             backgroundColor: "#fff",
