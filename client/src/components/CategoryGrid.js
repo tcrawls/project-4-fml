@@ -46,7 +46,7 @@ export default class CategoryGrid extends Component {
                                     title="Image title"
                                 />
                                 <CardContent style={cardContent}>
-                                    <Typography gutterBottom variant="h6" component="h2" color="textPrimary">
+                                    <Typography gutterBottom variant="h5" component="h2" color="textPrimary">
                                         {category.name}
                                     </Typography>
                                     {/* <Typography>
@@ -55,10 +55,10 @@ export default class CategoryGrid extends Component {
                                 </CardContent>
                                 <CardActions style={cardActions}>
                                     <Button component="a" href={`/category/${category._id}`} size="medium" color="primary">
-                                        View
+                                        View Album
                                     </Button>
                                     <Button component="a" href={`/category/${category._id}/edit`} size="medium" color="primary">
-                                        Edit
+                                        Edit Info
                                     </Button>
                                 </CardActions>
                             </Card>
